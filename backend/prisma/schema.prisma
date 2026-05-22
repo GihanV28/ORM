@@ -107,6 +107,8 @@ model Product {
   hasVariants      Boolean             @default(false)
   variants         Json?
   colors           Json?
+  productType      String              @default("single")
+  colorVariants    Json?
   modelDetails     String?
   material         String?
   careInstructions Json?
@@ -115,6 +117,7 @@ model Product {
   productNotes     String?
   categoryId       String?
   category         Category?           @relation(fields: [categoryId], references: [id])
+  sizeGuideId      String?
   createdAt        DateTime            @default(now())
   updatedAt        DateTime            @updatedAt
   images           ProductImage[]
